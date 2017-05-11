@@ -1,0 +1,65 @@
+[
+  {
+    "name": "403",
+    "title": "Accès refusé",
+    "topNavigation": false,
+    "requireLogin": false,
+    "hidden": true,
+    "views": {
+      "contentCommon": "403.html"
+    }
+  },
+  {
+    "name": "analyses_donnees",
+    "title": "Analyses de données",
+    "topNavigation": false,
+    "isStateRef": true,
+    "views": {
+      "content": "analyses_donnees.html"
+    },
+    "icone": "fa fa-bar-chart",
+    "pages": [
+      {
+        "name": "view",
+        "title": "Visualisation d'une analyse de données",
+        "views": {
+          "content": "analyses_donnees_view.html",
+          "params": [
+            "id"
+          ]
+        },
+        "niveauAction": "view"
+      },
+      {
+        "name": "create",
+        "title": "Création d'une analyse de données",
+        "views": {
+          "content": "analyses_donnees_edit.html"
+        },
+        "niveauAction": "create"
+      },
+      {
+        "name": "edit",
+        "title": "Modification d'une analyse de données",
+        "views": {
+          "content": "analyses_donnees_edit.html",
+          "params": [
+            "id"
+          ]
+        },
+        "niveauAction": "edit"
+      },
+      {
+        "name": "delete",
+        "title": "Suppression d'une analyse de données",
+        "views": {
+          "content": "analyses_donnees_view.html",
+          "params": [
+            "id"
+          ]
+        },
+        "niveauAction": "delete"
+      }
+    ]
+  }
+]
