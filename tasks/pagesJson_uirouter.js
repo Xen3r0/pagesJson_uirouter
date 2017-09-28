@@ -51,8 +51,6 @@ module.exports = function (grunt) {
 
             setUpStates(allPages, 'winlassie');
 
-            console.log(allPages.length,  (0 < states.length));
-
             if (0 < Object.keys(states).length) {
                 dest.push(getTabs(2) + '$stateProvider');
 
@@ -164,12 +162,19 @@ module.exports = function (grunt) {
          */
         function setUpStates(pages, routeNameParent, parentDirectory) {
             pages.forEach(function (page) {
-                if (!page.isBlock) {
+                if (!page.isBlock && !page.isStateRef) {
                     var routeName = routeNameParent + '.' + page.name;
                     var dirState = routeName.replace('winlassie.', '').split('.');
                     var templateUrl = null;
                     var pageNameReplace = replaceAll(page.name, '_', '-');
                     var state = {url: '/' + pageNameReplace, data: {haveTemplate: false}};
+
+                    // Page cachée ou pas
+                    if (typeof page.hidden !== 'undefined') {
+                        state.data.hidden = page.hidden;
+                    } else {
+                        state.data.hidden = false;
+                    }
 
                     // C'est une route d'action (view, create, edit...)
                     if (page.niveauAction) {

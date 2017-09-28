@@ -27,8 +27,8 @@ exports.pagesJson_gettext = {
         done();
     },
     default_options: function (test) {
-        var actual = grunt.file.read('tmp/pages.config.js');
-        var expected = grunt.file.read('test/pages_expected.js');
+        let actual = grunt.file.read('tmp/pages.config.js');
+        let expected = grunt.file.read('test/pages_expected.js');
         test.equal(actual, expected);
         test.done();
     }
