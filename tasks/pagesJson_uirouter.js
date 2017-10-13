@@ -162,7 +162,7 @@ module.exports = function (grunt) {
          */
         function setUpStates(pages, routeNameParent, parentDirectory) {
             pages.forEach(function (page) {
-                if (!page.isBlock && !page.isStateRef) {
+                if (!page.isBlock && (!page.isStateRef || page.stateRef)) {
                     var routeName = routeNameParent + '.' + page.name;
                     var dirState = routeName.replace('winlassie.', '').split('.');
                     var templateUrl = null;
